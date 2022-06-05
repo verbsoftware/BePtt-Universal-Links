@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BePTT Universal Links</title>
+    <link rel="icon" href="https://b.beptt.cc/icon.png">
+    <meta property="og:title" content="BePtt Universal Link">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bbs.beptt.cc/">
+    <meta property="og:description" content="">
+    <meta itemprop="name" content="BePtt Universal Link">
+    <meta itemprop="description" content="">
+    <meta itemprop="url" content="https://bbs.beptt.cc/">
+    <meta itemprop="thumbnailUrl" content="./icon.png">
+    <meta itemprop="image" content="./icon.png">
+    <meta itemprop="imageUrl" content="./icon.png">
+    <meta property="og:image" content="./icon.png">
+</head>
+
+<body>
+    <p id="info">Redirect to www.ptt.cc</p>
+</body>
+
+<script>
+    // Redirect
+    if (!String.prototype.endsWith) {
+        String.prototype.endsWith = function (search, this_len) {
+            if (this_len === undefined || this_len > this.length) {
+                this_len = this.length;
+            }
+            return this.substring(this_len - search.length, this_len) === search;
+        };
+    }
+
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+    }
+
+    function redirect(link) {
+        if (navigator.userAgent.match(/Android/i)) {
+            document.location = "https://" + link;
+        } else if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+            setTimeout(function () {
+                window.location.href = "https://" + link;
+            }, 500);
+
+            window.location.href = "beptt://" + link;
+        } else {
+            window.location.href = "https://" + link;
+        }
+    }
+
+    const path = window.location.pathname
+    var newLink = ""
+
+    if (path.startsWith("/")) {
+        newLink = "www.ptt.cc/bbs" + path
+    } else {
+        newLink = "www.ptt.cc/bbs/" + path
+    }
+
+    if (!newLink.endsWith(".html")) {
+        newLink = newLink + ".html"
+    }
+
+    document.getElementById('info').innerHTML = "Redirect to " + newLink
+
+    delay(250).then(() => redirect(newLink));
+</script>
+
+</html>

@@ -1,0 +1,23 @@
+{
+  "activitycontinuation": {
+    "apps": [
+      "L74BV34S9C.tw.ystudio.BePTT"
+    ]
+  },
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "L74BV34S9C.tw.ystudio.BePTT",
+        "paths": [
+          "*"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "L74BV34S9C.tw.ystudio.BePTT"
+    ]
+  }
+}
